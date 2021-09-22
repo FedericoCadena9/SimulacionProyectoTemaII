@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/stylesPropios.css">
+    <title>Prueba Productos Medios</title>
+</head>
+
+<body class="font-body">
+    
+    <div x-data="{ sidebarOpen: true }" class="flex h-screen overflow-x-hidden">
+        <aside class="flex flex-col flex-shrink-0 w-64 transition-all duration-300 border-r "
+            :class="{ '-ml-64': !sidebarOpen }">
+            <div class="py-1 bg-indigo-400">
+                <h1 class="p-5 text-3xl font-medium text-white ">ITESHU</h1>
+            </div>
+            <nav class="flex flex-col flex-1 pt-6 text-white bg-indigo-300">
+                <a href="./index.html" class="p-3 hover:bg-white hover:text-indigo-300">Productos Medios</a>
+                <a href="./KolmogorovSmirnov.html" class="p-3 hover:bg-white hover:text-indigo-300 ">Kolmogorov-Smirnov</a>
+                <div class="pt-6 my-6 text-center border-t-2 border-gray-600">
+                    <div class="mx-3">
+                        <button class="w-full px-6 py-3 my-3 text-sm text-indigo-300 bg-white rounded-md">Descargar proyecto</button>
+                        <button class="w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md">Ver repositorio</button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        <div class="flex-1">
+            <header class="flex items-center p-4 text-gray-100 md:blur md:shadow text-semibold">
+                <button class="p-1 px-3 py-1 bg-green-500 rounded" @click="sidebarOpen = !sidebarOpen">
+                    <svg class="inline-block w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)"><path d="M4 11h12v2H4zm0-5h16v2H4zm0 12h7.235v-2H4z"></path></svg>
+                    <span class="">Menú</span>
+                </button>
+            </header>
+            
+            <main class="p-4">
+                <h2 class="mb-4 text-4xl font-medium">Prueba Productos Medios</h2>
+                <div class="grid gap-4 md:grid-cols-3">
+                    <div class="">
+                        <div class="relative h-10 my-4 input-component empty">
+                            <input
+                            id="x0"
+                            type="text"
+                            class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
+                            />
+                            <label class="absolute px-1 transition-all bg-white left-2">
+                            X0
+                            </label>
+                        </div>
+                        <div class="relative h-10 my-4 input-component empty">
+                            <input
+                            id="x1"
+                            type="text"
+                            class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
+                            />
+                            <label class="absolute px-1 transition-all bg-white left-2">
+                            X1
+                            </label>
+                        </div>
+                        <button class="w-full px-6 py-3 my-5 text-sm text-white bg-blue-600 rounded">Generar</button>
+                        
+                        <div>
+                            <div class="relative h-10 my-5 mb-5 input-component">
+                                <input
+                                    disabled
+                                    id="name"
+                                    type="text"
+                                    name="name"
+                                    class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
+                                />
+                                <label for="name" class="absolute px-1 transition-all bg-white left-2">
+                                    Cantidad de números obtenidos
+                                </label>
+                            </div>
+                            <button class="w-full px-6 py-3 my-1 text-sm text-white bg-blue-600 rounded">Exportar a CSV</button>
+                            <button class="w-full px-6 py-3 my-1 text-sm text-white bg-blue-600 rounded">Nuevo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="">
+                        <div class="w-full">
+                            <div class="overflow-hidden border-b border-gray-200 rounded shadow">
+                              <table class="min-w-full bg-white">
+                                <thead class="text-white bg-gray-800">
+                                  <tr>
+                                    <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">i</th>
+                                    <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">Xi</th>
+                                    <th class="px-4 py-3 text-sm font-semibold text-center ">Ui</th>
+                                  </tr>
+                                </thead>
+                              <tbody class="text-gray-700">
+                                <tr>
+                                  <td class="w-1/3 px-4 py-3 text-left"></td>
+                                  <td class="w-1/3 px-4 py-3 text-left"></td>
+                                  <td class="px-4 py-3 text-left"></td>
+                                </tr>
+                                <tr class="bg-gray-100">
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="px-4 py-3 text-left"></td>
+                                </tr>
+                                <tr>
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="px-4 py-3 text-left"></td>
+                                </tr>
+                                <tr class="bg-gray-100">
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="w-1/3 px-4 py-3 text-left"></td>
+                                    <td class="px-4 py-3 text-left"></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="">
+                        <img src="./imgs/ChartImg.png" alt="">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
+    <script>
+        
+        document.getElementById('name').value = ''
+        const allInputs = document.querySelectorAll('input');
+        for(const input of allInputs) {
+            input.addEventListener('input', () => {
+                const val = input.value
+                if(!val) {
+                    input.parentElement.classList.add('empty')
+                } else {
+                    input.parentElement.classList.remove('empty')
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
