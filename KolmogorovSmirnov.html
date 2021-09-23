@@ -43,25 +43,34 @@
                     <div class="">
                         <div class="py-4">
                             <p class="text-sm">Selección de archivo</p>
-                            <button class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Abrir</button>
+                            
+                            <!-- Botón para abir archivo CSV -->
+                            <button id="btnAbrir" class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Abrir</button>
                         </div>
                         <div>
                             <p class="text-sm">Selección de nivel de confianza</p>
                             <div class="flex flex-col py-3">
+                                
+                                <!-- Radio 90% -->
                                 <label class="inline-flex items-center mt-3">
-                                    <input type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">90%</span>
+                                    <input id="radioNoventa" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">90%</span>
                                 </label>
+                                <!-- Radio 95% -->
                                 <label class="inline-flex items-center mt-3">
-                                    <input type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">95%</span>
+                                    <input id="radioNoventayCinco" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">95%</span>
                                 </label>
+                                <!-- Radio 99% -->
                                 <label class="inline-flex items-center mt-3">
-                                    <input type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">99%</span>
+                                    <input id="radioNoventayNueve" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">99%</span>
                                 </label>
                                 
                             </div>
-                            <button class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Ejecutar</button>
+                            <!-- Botón para ejecutar -->
+                            <button id="btnEjecutar" class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Ejecutar</button>
                         </div>
                     </div>
+
+                    <!-- Tabla para generar numeros (Sin implementar aún) -->
                     <div class="">
                         <div class="w-full">
                             <div class="overflow-hidden border-b border-gray-200 rounded shadow">
@@ -100,6 +109,7 @@
                             </div>
                     </div>
                     <div class="">
+                        <!-- Gráfico (Imagen solo de muestra) **QUITAR** -->
                         <img src="./imgs/ChartImg.png" alt="">
                     </div>
                     <div class="col-span-2 ">
@@ -110,6 +120,8 @@
                             </div>
                             <div class="mx-10">
                                 <p>Estadistico de Prueba</p>
+
+                                <!-- Tabla para generar numeros (Sin implementar aún) -->
                                 <div class="w-full">
                                     <div class="overflow-hidden border-b border-gray-200 rounded shadow">
                                       <table class="min-w-full bg-white">
@@ -194,15 +206,18 @@
                                         <div class="flex justify-center py-5">
                                             <div class="px-4">
                                                 <label for="">D+</label>
-                                                <input type="text" disabled class="w-14">
+                                                <!-- D+ -->
+                                                <input id="dMas" type="text" disabled class="w-14">
                                             </div>
                                             <div class="px-4">
                                                 <label for="">D-</label>
-                                                <input type="text" disabled class="w-14">
+                                                <!-- D- -->
+                                                <input id="dMenos" type="text" disabled class="w-14">
                                             </div>
                                             <div class="px-4">
                                                 <label for="">D</label>
-                                                <input type="text" disabled class="w-14">
+                                                <!-- D -->
+                                                <input id="d" type="text" disabled class="w-14">
                                             </div>
                                         </div>
                                     </div>
@@ -210,13 +225,18 @@
                         </div>
                     </div>
                     <div class="">
-                        <p>Resolución</p>
-                        <input type="text" disabled class="w-14">
-                        <input type="text" disabled class="w-14">
-                        <input type="text" disabled class="w-14">
-                        <p>Validación</p>
-                        <textarea name="" id="" cols="18" rows="6"></textarea>
-                        <button class="w-full px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Nuevo</button>
+                        <div>
+                            <p>Resolución</p>
+                            <!-- Tabla para generar numeros (Sin implementar aún) -->
+                            <input id="d" type="text" disabled class="w-14">
+                            <input id="operador" type="text" disabled class="w-14">
+                            <input id="dValorCritico" type="text" disabled class="w-14">
+                        </div>
+                        <div class="my-5">
+                            <p>Validación</p>
+                            <textarea name="validacion" id="" cols="18" rows="6"></textarea>
+                            <button id="btnNuevo" class="w-full px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Nuevo</button>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -224,22 +244,8 @@
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
-    <script>
-        
-        document.getElementById('name').value = ''
-        const allInputs = document.querySelectorAll('input');
-        for(const input of allInputs) {
-            input.addEventListener('input', () => {
-                const val = input.value
-                if(!val) {
-                    input.parentElement.classList.add('empty')
-                } else {
-                    input.parentElement.classList.remove('empty')
-                }
-            })
-        }
-    </script>
-
+    <script src="./js/KolmogorovSmirnov.js"></script>
+    
 </body>
 
 </html>
