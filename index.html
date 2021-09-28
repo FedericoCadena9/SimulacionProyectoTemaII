@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/stylesPropios.css">
-    <title>Prueba Productos Medios</title>
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/stylesPropios.css">
+        <title>Prueba Productos Medios</title>
+    </head>
 <body class="font-body">
     
-    <div x-data="{ sidebarOpen: true }" class="flex h-screen overflow-x-hidden">
-        <aside class="flex flex-col flex-shrink-0 w-64 transition-all duration-300 border-r "
+    <div x-data="{ sidebarOpen: true }" class="flex overflow-x-hidden">
+        
+        <!-- Menu -->
+        <aside id="menu" class="flex flex-col flex-shrink-0 w-64 h-screen transition-all duration-300 border-r"
             :class="{ '-ml-64': !sidebarOpen }">
-            <div class="py-1 bg-indigo-400">
-                <h1 class="p-5 text-3xl font-medium text-white ">ITESHU</h1>
+            <div class="py-1 bg-royal-blue-500">
+                <h1 class="p-5 text-3xl font-semibold text-white ">ITESHU</h1>
             </div>
-            <nav class="flex flex-col flex-1 pt-6 text-white bg-indigo-300">
+            <nav class="flex flex-col flex-1 pt-6 text-white bg-royal-blue-300">
                 <a href="./index.html" class="p-3 hover:bg-white hover:text-indigo-300">Productos Medios</a>
                 <a href="./KolmogorovSmirnov.html" class="p-3 hover:bg-white hover:text-indigo-300 ">Kolmogorov-Smirnov</a>
                 <div class="pt-6 my-6 text-center border-t-2 border-gray-600">
-                    <div class="mx-3">
-                        <button class="w-full px-6 py-3 my-3 text-sm text-indigo-300 bg-white rounded-md">Descargar proyecto</button>
-                        <button class="w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md">Ver repositorio</button>
+                    <div class="flex flex-col mx-3">
+                        <div class="w-auto my-3">
+                            <a href="index.html" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-indigo-200 focus:bg-indigo-300 hover:text-white">Descargar proyecto</a>
+                        </div>
+                        <div class="w-auto">
+                            <a href="https://github.com/FedericoCadena9/SimulacionProyectoTemaII" target="_blank" class="inline-block min-w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md hover:bg-indigo-500 focus:bg-indigo-600">Ver repositorio</a>
+                        </div>
                     </div>
                 </div>
             </nav>
         </aside>
+        
         <div class="flex-1">
+            <!-- Botón Menu Body -->
             <header class="flex items-center p-4 text-gray-100 md:blur md:shadow text-semibold">
                 <button class="p-1 px-3 py-1 bg-green-500 rounded" @click="sidebarOpen = !sidebarOpen">
                     <svg class="inline-block w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)"><path d="M4 11h12v2H4zm0-5h16v2H4zm0 12h7.235v-2H4z"></path></svg>
@@ -37,112 +43,181 @@
                 </button>
             </header>
             
-            <main class="p-4">
-                <h2 class="mb-4 text-4xl font-medium">Prueba Productos Medios</h2>
-                <div class="grid gap-4 md:grid-cols-3">
-                    <div class="">
-
-                        <!-- Input para X0 -->
-                        <div class="relative h-10 my-4 input-component empty">
-                            <input
-                            id="x0"
-                            type="text"
-                            class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
-                            />
-                            <label class="absolute px-1 transition-all bg-white left-2">
-                            X0
-                            </label>
+            <!-- Body Productos Medios -->
+            <div class="w-full bg-indigo-500 p-14 ">
+                <div class="text-center text-white">
+                    <h1 class="text-4xl font-bold ">Productos Medios</h1>
+                    <p class="mx-auto my-4 text-sm font-normal"><span class="font-semibold">Instrucciones de uso:</span> Ingresar dos números (Semillas) iniciales donde la cantidad de cifras sea par. </p>
+                </div>
+                <div class="bg-white rounded-md">
+                    <div class="grid grid-cols-2 gap-8 py-8 mx-7">
+                        <!-- Input X0 -->
+                        <div class="grid grid-cols-1">
+                            <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">X0</label>
+                            <input onkeypress="return sonNumeros(event)"  id="x0" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la primer semilla"></input>
                         </div>
-                        
-                        <!-- Input para X1 -->
-                        <div class="relative h-10 my-4 input-component empty">
-                            <input
-                            id="x1"
-                            type="text"
-                            class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
-                            />
-                            <label class="absolute px-1 transition-all bg-white left-2">
-                            X1
-                            </label>
-                        </div>
-
-                        <!-- Boton de Generar números -->
-                        <button id="btnGenerar" class="w-full px-6 py-3 my-5 text-sm text-white bg-blue-600 rounded">Generar</button>
-                        
-                        <div>
-                            <!-- Input para N cantidad de números -->
-                            <div class="relative h-10 my-5 mb-5 input-component">
-                                <input
-                                    disabled
-                                    id="numerosObtenidos"
-                                    type="text"
-                                    name="name"
-                                    class="w-full h-full px-2 transition-all border-gray-300 rounded-sm border-blue"
-                                />
-                                <label class="absolute px-1 transition-all bg-white left-2">
-                                    Cantidad de números obtenidos
-                                </label>
-                            </div>
-
-                            <!-- Botón para exportar -->
-                            <button id="btnExportar" class="w-full px-6 py-3 my-1 text-sm text-white bg-blue-600 rounded">Exportar a CSV</button>
-                            
-                            <!-- Botón para nueva corrida -->
-                            <button id="btnNuevo" class="w-full px-6 py-3 my-1 text-sm text-white bg-blue-600 rounded">Nuevo</button>
+                        <!-- Input X1 -->
+                        <div class="grid grid-cols-1">
+                            <label class="text-xs font-semibold text-gray-500 uppercase md:text-sm text-light">X1</label>
+                            <input onkeypress="return sonNumeros(event)"  id="x1" class="px-3 py-2 mt-1 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingresa la segunda semilla"></input>
                         </div>
                     </div>
                     
-                    <div class="">
-                        <div class="w-full">
-
-                            <!-- Tabla para generar numeros (Sin implementar aún) -->
-                            <div class="overflow-hidden border-b border-gray-200 rounded shadow">
-                                <table class="min-w-full bg-white">
-                                <thead class="text-white bg-gray-800">
-                                    <tr>
-                                        <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">i</th>
-                                        <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">Xi</th>
-                                        <th class="px-4 py-3 text-sm font-semibold text-center ">Ui</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-gray-700">
-                                    <tr>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="px-4 py-3 text-left"></td>
-                                    </tr>
-                                    <tr class="bg-gray-100">
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="px-4 py-3 text-left"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="px-4 py-3 text-left"></td>
-                                    </tr>
-                                    <tr class="bg-gray-100">
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        <td class="px-4 py-3 text-left"></td>
-                                    </tr>
-                                    </tbody>
-                                    </table>
-                                    </div>
+                    <!-- Errores -->
+                    <div class="flex ">
+                        <div  class="flex-1 mx-7">
+                            <div id="error" class="flex items-center hidden px-6 py-4 mx-auto my-2 text-sm bg-red-200 rounded-md">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    class="w-5 h-5 mr-3 text-red-600"
+                                    >
+                                    <path
+                                        fill="currentColor"
+                                        d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
+                                        ></path>
+                                </svg>
+                                <span id="errorText" class="text-red-800"> Lugar de errores. </span>
                             </div>
-                    </div>
-                    <div class="">
-                        <!-- Gráfico (Imagen solo de muestra) **QUITAR** -->
-                        <img src="./imgs/ChartImg.png" alt="">
+
+                            <div id="warning" class="flex items-center hidden px-6 py-4 mx-auto text-sm bg-yellow-100 rounded-md">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    class="w-5 h-5 mr-3 text-yellow-600 sm:w-5 sm:h-5"
+                                    >
+                                    <path
+                                        fill="currentColor"
+                                        d="M23.119,20,13.772,2.15h0a2,2,0,0,0-3.543,0L.881,20a2,2,0,0,0,1.772,2.928H21.347A2,2,0,0,0,23.119,20ZM11,8.423a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Zm1.05,11.51h-.028a1.528,1.528,0,0,1-1.522-1.47,1.476,1.476,0,0,1,1.448-1.53h.028A1.527,1.527,0,0,1,13.5,18.4,1.475,1.475,0,0,1,12.05,19.933Z"
+                                        ></path>
+                                </svg>
+                                <span class="text-yellow-800">Sólo se admiten caracteres numéricos.</span>
+                            </div>
+                        </div>
+
+                        <!-- Botón Generar -->
+                        <div class="flex-1 my-3 mx-7">
+                            <div class="flex justify-end">
+                                <button onclick='productosMediosErrores()' type="button"  id="btnGenerar" class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-opacity-75">Generar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </main>
+
+                <!-- Botones Exportar y Nuevo -->
+                <div id="divButtons" class="flex hidden my-10 text-center">
+                    <button id="btnModal" class="w-full px-4 py-2 mx-3 font-medium text-white bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-700 focus:outline-none focus:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-opacity-75">Exportar CSV</button>
+                    <button id="btnNuevo" class="w-full px-4 py-2 mx-3 font-medium text-white bg-green-500 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:bg-green-500 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-opacity-75 ring-offset-green-200">Nuevo</button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <section class="container p-6 mx-auto font-mono">
+                <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+                    <div class="w-full overflow-x-auto">
+                        <table id="table" class="hidden w-full">
+                            <thead>
+                                <tr class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
+                                <th class="px-4 py-3">i</th>
+                                <th class="px-4 py-3">xi</th>
+                                <th class="px-4 py-3">ui</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Gráfico -->
+            <section id="chart" class="px-40 ">
+                <canvas id="myChart" width="10px" height="10px"></canvas>
+            </section>
+            
         </div>
     </div>
 
+
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden w-full main-modal h-100 animated fadeIn faster"
+		style="background: rgba(0,0,0,.7);">
+		<div
+			class="z-50 w-11/12 mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg modal-container md:max-w-md">
+			<div class="px-6 py-4 text-left modal-content">
+				<div class="flex items-center justify-between pb-3">
+					<p class="text-2xl font-bold">Proceso concluido</p>
+					<div class="z-50 cursor-pointer modal-close">
+						<svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+							viewBox="0 0 18 18">
+							<path
+								d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+							</path>
+						</svg>
+					</div>
+				</div>
+				<div class="my-5">
+					<p id="modalText"></p>
+				</div>
+				<div class="flex justify-end pt-2">
+                    <!-- Botón Aceptar -->
+					<button class="px-4 py-2 font-medium text-white bg-indigo-500 rounded-lg shadow-md modal-close hover:bg-indigo-700 focus:outline-none focus:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- Modal CSV -->
+    <div style="background: rgba(0,0,0,.7)" class="fixed inset-0 top-0 left-0 z-50 flex flex-col items-center justify-center hidden h-screen space-y-4 outline-none min-w-screen animated fadeIn faster focus:outline-none main-modal-csv">
+        <div class="flex flex-col p-8 bg-white rounded shadow-md hover:shodow-lg">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-16 h-16 p-3 text-blue-400 border border-blue-100 rounded-2xl bg-blue-50" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="flex flex-col ml-3">
+                        <div class="font-medium leading-none">¿Desea exportar el conjunto de números aleatorios a formato CSV?</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end pt-2">
+                <!-- Botón Cancelar -->
+                <button class="px-4 py-2 mx-3 font-medium text-gray-400 bg-gray-100 rounded-lg shadow-md modal-close-csv hover:bg-gray-200 hover:text-gray-500 focus:outline-none focus:text-white focus:bg-gray-300">Cancelar</button>
+                <!-- Botón Exportar -->
+                <a onclick="exportCSV()" id="btnExportar" class="px-4 py-2 mx-3 font-medium text-white bg-indigo-500 rounded-lg shadow-md cursor-pointer modal-close hover:bg-indigo-700 focus:outline-none focus:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-opacity-75">Exportar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nuevo -->
+    <div style="background: rgba(0,0,0,.7)" class="fixed inset-0 top-0 left-0 z-50 flex flex-col items-center justify-center hidden h-screen space-y-4 outline-none min-w-screen animated fadeIn faster focus:outline-none main-modal-nuevo">
+        <div class="flex flex-col p-8 bg-white rounded shadow-md hover:shodow-lg">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-16 h-16 p-3 text-blue-400 border border-blue-100 rounded-2xl bg-blue-50" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="flex flex-col ml-3">
+                        <div class="font-medium leading-none">¿Desea generar otro conjunto de números aleatorios?</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end pt-2">
+                <!-- Botón Cancelar -->
+                <button class="px-4 py-2 mx-3 font-medium text-gray-400 bg-gray-100 rounded-lg shadow-md modal-close-nuevo hover:bg-gray-200 hover:text-gray-500 focus:outline-none focus:text-white focus:bg-gray-300">Cancelar</button>
+                <!-- Botón Aceptar -->
+                <button id="btnModalNuevo" class="px-4 py-2 mx-3 font-medium text-white bg-green-500 rounded-lg shadow-md cursor-pointer modal-close hover:bg-green-700 focus:outline-none focus:bg-green-500 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
+            </div>
+        </div>
+    </div>
+        
     <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="./js/ProductosMedios.js"></script>
-
 </body>
-
 </html>
