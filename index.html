@@ -24,10 +24,10 @@
                 <div class="pt-6 my-6 text-center border-t-2 border-gray-600">
                     <div class="flex flex-col mx-3">
                         <div class="w-auto my-3">
-                            <a href="index.html" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-indigo-200 focus:bg-indigo-300 hover:text-white">Descargar proyecto</a>
+                            <a href="index.html" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-royal-blue-500 focus:bg-royal-blue-500 hover:text-white">Descargar proyecto</a>
                         </div>
                         <div class="w-auto">
-                            <a href="https://github.com/FedericoCadena9/SimulacionProyectoTemaII" target="_blank" class="inline-block min-w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md hover:bg-indigo-500 focus:bg-indigo-600">Ver repositorio</a>
+                            <a href="https://github.com/FedericoCadena9/SimulacionProyectoTemaII" target="_blank" class="inline-block min-w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md hover:bg-indigo-700 focus:bg-indigo-600">Ver repositorio</a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
         <div class="flex-1">
             <!-- Botón Menu Body -->
             <header class="flex items-center p-4 text-gray-100 md:blur md:shadow text-semibold">
-                <button class="p-1 px-3 py-1 bg-green-500 rounded" @click="sidebarOpen = !sidebarOpen">
+                <button class="p-1 px-3 py-1 bg-green-500 rounded hover:bg-green-600" @click="sidebarOpen = !sidebarOpen">
                     <svg class="inline-block w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)"><path d="M4 11h12v2H4zm0-5h16v2H4zm0 12h7.235v-2H4z"></path></svg>
                     <span class="">Menú</span>
                 </button>
@@ -128,7 +128,7 @@
             
 
             <!-- Gráfico -->
-            <section id="chart" class="px-40 ">
+            <section id="chart" class="px-40">
                 <canvas id="myChart" width="10px" height="10px"></canvas>
             </section>
             
@@ -216,7 +216,7 @@
     </div>
         
     <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 
     <script src="./js/ProductosMedios.js"></script>
 </body>

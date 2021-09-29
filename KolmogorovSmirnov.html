@@ -11,241 +11,236 @@
 </head>
 
 <body class="font-body">
-    
     <div x-data="{ sidebarOpen: true }" class="flex overflow-x-hidden">
-        <aside class="flex flex-col flex-shrink-0 w-64 transition-all duration-300 border-r"
+        <!-- Menu -->
+        <aside id="menu" class="flex flex-col flex-shrink-0 w-64 min-h-full transition-all duration-300 border-r"
             :class="{ '-ml-64': !sidebarOpen }">
-            <div class="py-1 bg-indigo-400">
-                <h1 class="p-5 text-3xl font-medium text-white ">ITESHU</h1>
+            <div class="py-1 bg-royal-blue-500">
+                <h1 class="p-5 text-3xl font-semibold text-white ">ITESHU</h1>
             </div>
-            <nav class="flex flex-col flex-1 pt-6 text-white bg-indigo-300">
+            <nav class="flex flex-col flex-1 pt-6 text-white bg-royal-blue-300">
                 <a href="./index.html" class="p-3 hover:bg-white hover:text-indigo-300">Productos Medios</a>
                 <a href="./KolmogorovSmirnov.html" class="p-3 hover:bg-white hover:text-indigo-300 ">Kolmogorov-Smirnov</a>
                 <div class="pt-6 my-6 text-center border-t-2 border-gray-600">
-                    <div class="mx-3">
-                        <button class="w-full px-6 py-3 my-3 text-sm text-indigo-300 bg-white rounded-md">Descargar proyecto</button>
-                        <button class="w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md">Ver repositorio</button>
+                    <div class="flex flex-col mx-3">
+                        <div class="w-auto my-3">
+                            <a href="index.html" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-royal-blue-500 focus:bg-royal-blue-500 hover:text-white">Descargar proyecto</a>
+                        </div>
+                        <div class="w-auto">
+                            <a href="https://github.com/FedericoCadena9/SimulacionProyectoTemaII" target="_blank" class="inline-block min-w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md hover:bg-indigo-700 focus:bg-indigo-600">Ver repositorio</a>
+                        </div>
                     </div>
                 </div>
             </nav>
         </aside>
+        
         <div class="flex-1">
+            <!-- Botón Menu Body -->
             <header class="flex items-center p-4 text-gray-100 md:blur md:shadow text-semibold">
-                <button class="p-1 px-3 py-1 bg-green-500 rounded" @click="sidebarOpen = !sidebarOpen">
+                <button class="p-1 px-3 py-1 bg-green-500 rounded hover:bg-green-600" @click="sidebarOpen = !sidebarOpen">
                     <svg class="inline-block w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)"><path d="M4 11h12v2H4zm0-5h16v2H4zm0 12h7.235v-2H4z"></path></svg>
                     <span class="">Menú</span>
                 </button>
             </header>
             
-            <main class="p-4">
-                <h2 class="mb-4 text-4xl font-medium">Prueba Kolmogorov-Smirnov</h2>
-                <div class="grid gap-4 md:grid-rows-2 md:grid-cols-3">
-                    <div class="">
-                        <div class="py-4">
-                            <p class="text-sm">Selección de archivo</p>
-                            
-                            <!-- Botón para abir archivo CSV -->
-                            <button id="btnAbrir" class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Abrir</button>
-                        </div>
-                        <div>
-                            <p class="text-sm">Selección de nivel de confianza</p>
-                            <div class="flex flex-col py-3">
-                                
-                                <!-- Radio 90% -->
-                                <label class="inline-flex items-center mt-3">
-                                    <input id="radioNoventa" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">90%</span>
-                                </label>
-                                <!-- Radio 95% -->
-                                <label class="inline-flex items-center mt-3">
-                                    <input id="radioNoventayCinco" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">95%</span>
-                                </label>
-                                <!-- Radio 99% -->
-                                <label class="inline-flex items-center mt-3">
-                                    <input id="radioNoventayNueve" type="radio" class="w-5 h-5 text-gray-600 form-radio" checked><span class="ml-2 text-gray-700">99%</span>
-                                </label>
-                                
-                            </div>
-                            <!-- Botón para ejecutar -->
-                            <button id="btnEjecutar" class="w-40 px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Ejecutar</button>
-                        </div>
-                    </div>
 
-                    <!-- Tabla para generar numeros (Sin implementar aún) -->
-                    <div class="">
-                        <div class="w-full">
-                            <div class="overflow-hidden border-b border-gray-200 rounded shadow">
-                              <table class="min-w-full bg-white">
-                                <thead class="text-white bg-gray-800">
-                                  <tr>
-                                    <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">i</th>
-                                    <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">Xi</th>
-                                    <th class="px-4 py-3 text-sm font-semibold text-center ">Ui</th>
-                                  </tr>
-                                </thead>
-                              <tbody class="text-gray-700">
-                                <tr>
-                                  <td class="w-1/3 px-4 py-3 text-left"></td>
-                                  <td class="w-1/3 px-4 py-3 text-left"></td>
-                                  <td class="px-4 py-3 text-left"></td>
-                                </tr>
-                                <tr class="bg-gray-100">
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="px-4 py-3 text-left"></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="px-4 py-3 text-left"></td>
-                                </tr>
-                                <tr class="bg-gray-100">
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="w-1/3 px-4 py-3 text-left"></td>
-                                    <td class="px-4 py-3 text-left"></td>
-                                </tr>
-                                </tbody>
-                                </table>
+            <!-- Body KolmogorovSmirnov -->
+            <div class="flex items-center justify-center bg-gray-100">
+                <div class="container mx-auto bg-indigo-500 p-14">
+                    
+                    <h1 class="text-4xl font-bold text-center text-white">Prueba Kolmogorov-Smirnov</label>
+                    <div class="flex items-center justify-center py-3">
+                        <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)"><path d="M11 15h2V9h3l-4-5-4 5h3z"></path><path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path></svg>
+                    </div>
+                    <p class="max-w-lg mx-auto mb-6 text-sm font-normal">Selecciona un archivo en tu directorio (Sólo se aceptan archivos .CSV)</p>
+                    <div class="items-center justify-between px-2 py-1 overflow-hidden bg-white rounded-lg sm:flex">
+                        <input class="flex-grow px-2 py-2 text-base text-gray-400 outline-none " type="file" id="archivo" accept=".csv" placeholder="Selección de archivo" />
+                    </div>
+                            
+                    <div class="pt-10 text-white">
+                        <p class="text-sm font-normal">Selección de nivel de confianza</p>
+                        <div class="flex justify-center py-3 text-base font-medium ">
+                            <!-- Radio 90% -->
+                            <label class="inline-flex items-center px-10 mt-3 text-white">
+                                <input id="radioNoventa" name="opcion" type="radio" class="w-5 h-5 text-white form-radio" checked=false><span class="ml-2 text-white">90%</span>
+                            </label>
+                            <!-- Radio 95% -->
+                            <label class="inline-flex items-center px-10 mt-3">
+                                <input id="radioNoventayCinco" name="opcion" type="radio" class="w-5 h-5 text-white form-radio" checked=false ><span class="ml-2 textwhite"></span>95%</span>
+                            </label>
+                            <!-- Radio 99% -->
+                            <label class="inline-flex items-center px-10 mt-3">
+                                <input id="radioNoventayNueve" name="opcion" type="radio" class="w-5 h-5 text-white form-radio" checked=false><span class="ml-2 text-white">99%</span>
+                            </label>
+                            <label class="inline-flex items-center hidden px-10 mt-3">
+                                <input  name="opcion" type="radio" class="w-5 h-5 text-white form-radio" checked=false><span class="ml-2 text-white">99%</span>
+                            </label>
+                                    
+                        </div>
+                        <!-- Botón para ejecutar -->
+                        <button  id="btnEjecutar" class="w-40 px-4 py-2 text-base font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-opacity-75">Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden" id="content">
+                <!-- Tabla para generar numeros (Sin implementar aún) -->
+            <div class="py-10">
+                <div class="w-full p-6">
+                    <div id="tablaGenerada" class="overflow-hidden"></div>
+                </div>
+            </div>
+                    <!-- Gráfico -->
+                    <section id="chart" class="px-40 ">
+                        <canvas id="myChart" width="10px" height="10px"></canvas>
+                    </section>
+
+                    <!-- Modal -->
+                    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden w-full main-modal h-100 animated fadeIn faster"
+                    style="background: rgba(0,0,0,.7);">
+                    <div
+                        class="z-50 w-11/12 mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg modal-container md:max-w-md">
+                        <div class="px-6 py-4 text-left modal-content">
+                            <div class="flex items-center justify-between pb-3">
+                                <p id="mensaje" class="text-2xl font-bold"> </p>
+                                <div class="z-50 cursor-pointer modal-close">
+                                    <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 18 18">
+                                        <path
+                                            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                                        </path>
+                                    </svg>
                                 </div>
                             </div>
+                            <div class="my-5">
+                                <p id="modalText"></p>
+                            </div>
+                            <div class="flex justify-end pt-2">
+                                <!-- Botón Aceptar -->
+                                <button class="px-4 py-2 font-medium text-white bg-indigo-500 rounded-lg shadow-md modal-close hover:bg-indigo-700 focus:outline-none focus:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="">
-                        <!-- Gráfico (Imagen solo de muestra) **QUITAR** -->
-                        <img src="./imgs/ChartImg.png" alt="">
-                    </div>
+                </div>
+
                     <div class="col-span-2 ">
-                        <div class="flex">
+                        <div class="grid gap-5 p-6">
                             <div>
-                                <p>Hipotesis</p>
+                                <p class="text-2xl font-bold">Hipotesis</p>
                                 <img src="./imgs/Hipotesis.png" class="my-4 h-14 w-18" alt="">
                             </div>
-                            <div class="mx-10">
-                                <p>Estadistico de Prueba</p>
-
+                            <div class="">
+                                <p class="text-2xl font-bold">Estadistico de Prueba</p>
                                 <!-- Tabla para generar numeros (Sin implementar aún) -->
-                                <div class="w-full">
-                                    <div class="overflow-hidden border-b border-gray-200 rounded shadow">
-                                      <table class="min-w-full bg-white">
-                                        <thead class="text-white bg-gray-800">
-                                          <tr>
-                                            <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">i</th>
-                                            <th class="w-1/3 px-4 py-3 text-sm font-semibold text-center ">Ui'</th>
-                                            <th class="px-4 py-3 text-sm font-semibold text-center ">i/n</th>
-                                            <th class="px-4 py-3 text-sm font-semibold text-center ">i/n-Ui'</th>
-                                            <th class="px-4 py-3 text-sm font-semibold text-center ">i-1</th>
-                                            <th class="px-4 py-3 text-sm font-semibold text-center ">i-1/n</th>
-                                            <th class="px-4 py-3 text-sm font-semibold text-center ">Ui'-i-1/n</th>
-                                          </tr>
-                                        </thead>
-                                      <tbody class="text-gray-700">
-                                        <tr>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                          <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr class="bg-gray-100">
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr class="bg-gray-100">
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr class="bg-gray-100">
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                            <td class="w-1/3 px-4 py-3 text-left"></td>
-                                        </tr>
-                                        </tbody>
-                                        </table>
-                                        </div>
+                                <div class="w-full py-4">
+                                    <div id="tablaGenerada2" class="overflow-hidden border-b border-gray-200 rounded shadow"></div>
                                         <div class="flex justify-center py-5">
-                                            <div class="px-4">
-                                                <label for="">D+</label>
-                                                <!-- D+ -->
-                                                <input id="dMas" type="text" disabled class="w-14">
+                                            <div class="flex flex-col mx-4 space-y-2">
+                                                <label for="dMas" class="font-semibold text-red-500 select-none">D+</label>
+                                                <input
+                                                    id="dMas"
+                                                    type="text"
+                                                    class="w-24 px-4 py-2 text-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                                />
                                             </div>
-                                            <div class="px-4">
-                                                <label for="">D-</label>
-                                                <!-- D- -->
-                                                <input id="dMenos" type="text" disabled class="w-14">
+                                            <div class="flex flex-col mx-4 space-y-2">
+                                                <label for="dMenos" class="font-semibold text-blue-500 select-none">D-</label>
+                                                <input
+                                                    id="dMenos"
+                                                    type="text"
+                                                    class="w-24 px-4 py-2 text-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                                />
                                             </div>
-                                            <div class="px-4">
-                                                <label for="">D</label>
-                                                <!-- D -->
-                                                <input id="d" type="text" disabled class="w-14">
+                                            <div class="flex flex-col mx-4 space-y-2">
+                                                <label for="d" class="font-semibold text-gray-500 select-none">D</label>
+                                                <input
+                                                    id="d"
+                                                    type="text"
+                                                    class="w-24 px-4 py-2 text-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                                />
                                             </div>
                                         </div>
                                     </div>
                             </div>
+
+                            <div class="">
+                                <div>
+                                    <p class="text-2xl font-bold">Resolución</p>
+                                    <!-- Tabla para generar numeros (Sin implementar aún) -->
+                                    <div class="my-5">
+                                        <input
+                                                    id="d2"
+                                                    type="text"
+                                                    class="w-24 px-4 py-2 text-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                                />
+                                        <input
+                                                    id="operador"
+                                                    type="text"
+                                                    class="w-24 px-4 py-2 font-semibold border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                                />
+                                                <input
+                                                id="dValorCritico"
+                                                type="text"
+                                                class="w-24 px-4 py-2 text-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                            />
+                                    
+                                    </div>
+                                </div>
+                                <div class="my-5">
+                                    <p class="text-2xl font-bold">Validación</p>
+                                    <div class="my-5">
+                                        <div class='relative flex content-center justify-center w-full mx-1 bg-purple-100 rounded shadow-lg light-shadow'>
+                                            <span class="absolute flex w-3 h-3 -top-1 -right-1">
+                                                <span class="absolute inline-flex w-full h-full bg-purple-400 rounded-full opacity-0 opacity-75 animate-ping "></span>
+                                                <span class="relative inline-flex w-3 h-3 bg-purple-500 rounded-full"></span>
+                                            </span>
+                                                <div class='flex items-center px-4 py-4'>
+                                                    <div class='text-center'>
+                                                        <p id="validar" class='text-sm text-purple-500'></p>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <button id="btnNuevo" class="w-full px-4 py-2 my-6 font-medium text-white bg-green-500 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:bg-green-500 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-opacity-75 ring-offset-green-200">Nuevo</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <div>
-                            <p>Resolución</p>
-                            <!-- Tabla para generar numeros (Sin implementar aún) -->
-                            <input id="d" type="text" disabled class="w-14">
-                            <input id="operador" type="text" disabled class="w-14">
-                            <input id="dValorCritico" type="text" disabled class="w-14">
-                        </div>
-                        <div class="my-5">
-                            <p>Validación</p>
-                            <textarea name="validacion" id="" cols="18" rows="6"></textarea>
-                            <button id="btnNuevo" class="w-full px-6 py-3 my-3 text-sm text-white bg-blue-600 rounded">Nuevo</button>
-                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nuevo -->
+    <div style="background: rgba(0,0,0,.7)" class="fixed inset-0 top-0 left-0 z-50 flex flex-col items-center justify-center hidden h-screen space-y-4 outline-none min-w-screen animated fadeIn faster focus:outline-none main-modal-nuevo">
+        <div class="flex flex-col p-8 bg-white rounded shadow-md hover:shodow-lg">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-16 h-16 p-3 text-blue-400 border border-blue-100 rounded-2xl bg-blue-50" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="flex flex-col ml-3">
+                        <div class="font-medium leading-none">¿Desea hacer otra prueba de uniformidad Kolmogorov-Smirnov?</div>
                     </div>
                 </div>
-            </main>
+            </div>
+            <div class="flex justify-end pt-2">
+                <!-- Botón Cancelar -->
+                <button class="px-4 py-2 mx-3 font-medium text-gray-400 bg-gray-100 rounded-lg shadow-md modal-close-nuevo hover:bg-gray-200 hover:text-gray-500 focus:outline-none focus:text-white focus:bg-gray-300">Cancelar</button>
+                <!-- Botón Aceptar -->
+                <button id="btnModalNuevo" class="px-4 py-2 mx-3 font-medium text-white bg-green-500 rounded-lg shadow-md cursor-pointer modal-close hover:bg-green-700 focus:outline-none focus:bg-green-500 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
+            </div>
         </div>
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js'></script>
     <script src="./js/KolmogorovSmirnov.js"></script>
-    
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 </body>
 
 </html>
