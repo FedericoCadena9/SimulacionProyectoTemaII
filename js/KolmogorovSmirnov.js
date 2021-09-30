@@ -229,11 +229,11 @@ function resolucion(){
   document.querySelector('#dValorCritico').value = Dcritico;
   if( mayor > Dcritico ){
     document.querySelector('#operador').value = '  > ';
-    solucion ="\t\tSe acepta la hipótesis nula.\nEl conjunto presenta uniformidad en el intervalo [0,1].";
+    solucion ="\t\tSe rechaza la hipótesis nula.\nEl conjunto no presenta uniformidad en el intervalo [0,1].";
     document.getElementById('validar').innerHTML = solucion;
   }else{
     document.querySelector('#operador').value = '  < ';
-    solucion ="\t\tSe rechaza la hipótesis nula.\nEl conjunto no presenta uniformidad en el intervalo [0,1].";
+    solucion ="\t\tSe acepta la hipótesis nula.\nEl conjunto presenta uniformidad en el intervalo [0,1].";
     document.getElementById('validar').innerHTML = solucion;
   }
 }
