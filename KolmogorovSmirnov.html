@@ -24,7 +24,7 @@
                 <div class="pt-6 my-6 text-center border-t-2 border-gray-600">
                     <div class="flex flex-col mx-3">
                         <div class="w-auto my-3">
-                            <a href="SimulacionProyectoTemaII.zip" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-royal-blue-500 focus:bg-royal-blue-500 hover:text-white">Descargar proyecto</a>
+                            <a href="index.html" download="productos-medios-html" class="inline-block min-w-full px-6 py-3 text-sm text-indigo-300 bg-white rounded-md focus:text-white focus: hover:bg-royal-blue-500 focus:bg-royal-blue-500 hover:text-white">Descargar proyecto</a>
                         </div>
                         <div class="w-auto">
                             <a href="https://github.com/FedericoCadena9/SimulacionProyectoTemaII" target="_blank" class="inline-block min-w-full px-6 py-3 text-sm text-white bg-indigo-400 rounded-md hover:bg-indigo-700 focus:bg-indigo-600">Ver repositorio</a>
@@ -32,6 +32,13 @@
                     </div>
                 </div>
             </nav>
+            <div class="bottom-0 px-3 bg-indigo-500">
+                <div class="pt-4">
+                    <p class="text-lg font-semibold text-white">¿Necesitas ayuda?</p>
+                <p class="text-xs text-white opacity-50">Prueba leer nuestro manual de usuario.</p>
+                </div>
+                <a href="" class="inline-block py-3 my-3 font-medium text-gray-900 bg-white border border-white rounded-md px-14 hover:text-white hover:bg-indigo-500">Visualizar</a>
+            </div>
         </aside>
         
         <div class="flex-1">
@@ -75,7 +82,6 @@
                             <label class="inline-flex items-center hidden px-10 mt-3">
                                 <input  name="opcion" type="radio" class="w-5 h-5 text-white form-radio" checked=false><span class="ml-2 text-white">99%</span>
                             </label>
-                                    
                         </div>
                         <!-- Botón para ejecutar -->
                         <button  id="btnEjecutar" class="w-40 px-4 py-2 text-base font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-opacity-75">Ejecutar</button>
@@ -94,7 +100,7 @@
                     <section id="chart" class="px-40 ">
                         <canvas id="myChart" width="10px" height="10px"></canvas>
                     </section>
-                    
+
                     <div class="col-span-2 ">
                         <div class="grid gap-5 p-6">
                             <div>
@@ -138,7 +144,7 @@
                             <div class="">
                                 <div>
                                     <p class="text-2xl font-bold">Resolución</p>
-                                    <!-- Tabla para generar numeros (Sin implementar aún) -->
+                                    <!-- Tabla para generar numeros-->
                                     <div class="my-5">
                                         <input
                                                     id="d2"
@@ -187,30 +193,30 @@
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden w-full main-modal h-100 animated fadeIn faster"
     style="background: rgba(0,0,0,.7);">
-        <div
-            class="z-50 w-11/12 mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg modal-container md:max-w-md">
-            <div class="px-6 py-4 text-left modal-content">
-                <div class="flex items-center justify-between pb-3">
-                    <p id="mensaje" class="text-2xl font-bold"> </p>
-                    <div class="z-50 cursor-pointer modal-close">
-                        <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                            viewBox="0 0 18 18">
-                            <path
-                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                            </path>
-                        </svg>
-                    </div>
+    <div
+        class="z-50 w-11/12 mx-auto overflow-y-auto bg-white border border-teal-500 rounded shadow-lg modal-container md:max-w-md">
+        <div class="px-6 py-4 text-left modal-content">
+            <div class="flex items-center justify-between pb-3">
+                <p id="mensaje" class="text-2xl font-bold"> </p>
+                <div class="z-50 cursor-pointer modal-close">
+                    <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18">
+                        <path
+                            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                        </path>
+                    </svg>
                 </div>
-                <div class="my-5">
-                    <p id="modalText"></p>
-                </div>
-                <div class="flex justify-end pt-2">
-                    <!-- Botón Aceptar -->
-                    <button class="px-4 py-2 font-medium text-white bg-indigo-500 rounded-lg shadow-md modal-close hover:bg-indigo-700 focus:outline-none focus:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
-                </div>
+            </div>
+            <div class="my-5">
+                <p id="modalText"></p>
+            </div>
+            <div class="flex justify-end pt-2">
+                <!-- Botón Aceptar -->
+                <button class="px-4 py-2 font-medium text-white bg-indigo-500 rounded-lg shadow-md modal-close hover:bg-indigo-700 focus:outline-none focus:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-opacity-75">Aceptar</button>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Modal Nuevo -->
     <div style="background: rgba(0,0,0,.7)" class="fixed inset-0 top-0 left-0 z-50 flex flex-col items-center justify-center hidden h-screen space-y-4 outline-none min-w-screen animated fadeIn faster focus:outline-none main-modal-nuevo">
